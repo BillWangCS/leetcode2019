@@ -1,0 +1,17 @@
+942.go
+894.go
+338.go follow up
+Stores the former results.
+class Solution {
+public:
+  vector<int> countBits(int num) {
+    vector<int> dp(num+1,0);
+    for(int i=1; i<num+1; ++i)
+      dp[i] = dp[i>>1] + (i&1);
+
+    return dp;
+  }
+};
+969.go pancake sort.请用正常思维考虑问题。。。
+739.go stack in go
+889.go 过了但需要再练习
