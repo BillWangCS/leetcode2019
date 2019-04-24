@@ -15,3 +15,8 @@ public:
 969.go pancake sort.请用正常思维考虑问题。。。
 739.go stack in go
 889.go 过了但需要再练习
+932.go DP解决有递推关系的问题
+696.go force break 超时
+
+Skip number:
+983.go No idea, just skip it for now.
