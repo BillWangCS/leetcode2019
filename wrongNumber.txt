@@ -17,6 +17,9 @@ public:
 889.go 过了但需要再练习
 932.go DP解决有递推关系的问题
 696.go force break 超时
-
+447.go 直接DFS会超时
+453.go 直接贪心，算出所有的elem和min elem的差并加和.
 Skip number:
 983.go No idea, just skip it for now.
+1017.go 超nice的方法，不断在neg位加上2*neg值补全差值
+746.go 同是DP只有迭代不超时
