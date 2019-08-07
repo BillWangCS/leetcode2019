@@ -23,3 +23,22 @@ Skip number:
 983.go No idea, just skip it for now.
 1017.go 超nice的方法，不断在neg位加上2*neg值补全差值
 746.go 同是DP只有迭代不超时
+1042.go Skipped for a while
+309.go
+ /*
+ Basically, you want to keep track of maximum profits in two different states for each price: buy and sell.
+
+We start off by setting the current buy state (b0) and previous buy state (b1) to negative numbers.
+Next all sell states s0, s1, s2 are set to 0.
+
+Starting at the 2nd price (we ignore first becase we can't have a profit in 1 day),
+ we decide the maximum profit for buy on this day. We choose between yesterday's buy max profit or buying
+ today (comparing selling 2 days ago + cooldown yesterday). Then, we find max profit for today's sell with yesterday's
+ sell price vs. today's price - buying it from yesterday.
+
+At the end, we return the last sell price (because that's the last time you could've made a profit.
+ You can't make a profit by buying on the last day)
+  */
+836.go 补集好求，请求补集后取反
+1018.go
+1043.go DP

@@ -50,23 +50,42 @@ costs.length == 3
 
 package main
 
-func determine30(days []int, costs []int, index int) (int, int) {
-	day := days[index]
-	i := index
-	cnt := 0
-	for days[i] < day + 30 {
-		cnt++
-		i++
+import "fmt"
+
+func minInt(a, b int) int {
+	if a > b {
+		return b
 	}
+	return a
+}
+
+func dp(day int, dayCost *map[int]int, inCalendar map[int]bool, costs []int) int {
+	if day > 365 {
+		return 0
+	}
+	if _, ok := (*dayCost)[day]; ok {
+		return (*dayCost)[day]
+	}
+	today := 0
+	if inCalendar[day] {
+		today = minInt(dp(day+1, dayCost, inCalendar, costs) + costs[0], dp(day+7, dayCost, inCalendar, costs) + costs[1])
+		today = minInt(today, dp(day+30, dayCost, inCalendar, costs) + costs[2])
+	} else {
+		today = dp(day+1, dayCost, inCalendar, costs)
+	}
+	(*dayCost)[day] = today
+	return today
 }
 
 func mincostTickets(days []int, costs []int) int {
-	res := 0
-	i := 0
-	for i < len(days) {
-		index, cost := determine30(days, costs, i)
-		res += cost
-		i = index
+	dayCost := make(map[int]int)
+	inCalendar := make(map[int]bool)
+	for i := 0; i < len(days); i++ {
+		inCalendar[days[i]] = true
 	}
-	return res
+	return dp(1, &dayCost, inCalendar, costs)
+}
+
+func main() {
+	fmt.Println(mincostTickets([]int{1,4,6,7,8,20}, []int{2,7,15}))
 }
